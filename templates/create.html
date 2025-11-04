@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create Paste - CodeDrop</title>
+  <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">CodeDrop</div>
+
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links" id="nav-links">
+        <a href="/" class="active">Home</a>
+        <a href="/create">Create Paste</a>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <div class="form-wrapper">
+      <h2>Create New Paste</h2>
+      <form class="paste-form" method="post" action="/create">
+
+        <!-- Title -->
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter paste title..." required>
+
+        <!-- Syntax Highlighting -->
+        <label for="syntax">Syntax Highlighting:</label>
+        <select id="syntax" name="syntax">
+          <option value="none">None</option>
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="flask">Flask</option>
+          <option value="json">Json</option>
+          <option value="django">Django</option>
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+          <option value="php">PHP</option>
+          <option value="java">Java</option>
+        </select>
+
+        <!-- Expiration -->
+        <label for="expiration">Paste Expiration:</label>
+        <select id="expiration" name="expiration">
+          <option value="30s">30 Seconds</option>
+          <option value="3h">3 Hours</option>
+          <option value="24h">24 Hours</option>
+          <option value="1w">1 Week</option>
+          <option value="1m">1 Month</option>
+          <option value="never">Never</option>
+        </select>
+
+        <!-- Password Protection -->
+        <label class="inline-flex items-center space-x-2" style="margin-top:10px;">
+          <input type="checkbox" id="is_password_protected" name="is_password_protected">
+          <span>Protect with password</span>
+        </label>
+
+        <div id="password_field" class="hidden" style="margin-top:5px;">
+          <input type="password" id="password" name="password" placeholder="Enter password...">
+        </div>
+
+        <!-- Burn After Read -->
+        <label class="inline-flex items-center space-x-2" style="margin-top:10px;">
+          <input type="checkbox" id="burn_after_read" name="burn_after_read">
+          <span>Burn after reading (delete after first view)</span>
+        </label>
+
+        <!-- Paste Content -->
+        <label for="content" style="margin-top:10px;">Paste Content:</label>
+        <textarea id="content" name="content" rows="15" placeholder="Paste your code or text here..."
+          required></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit">Create Paste</button>
+
+      </form>
+    </div>
+
+    <script>
+      // Toggle password field visibility
+      const checkbox = document.getElementById('is_password_protected');
+      const passwordField = document.getElementById('password_field');
+      checkbox.addEventListener('change', () => {
+        passwordField.classList.toggle('hidden', !checkbox.checked);
+      });
+    </script>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 CodeDrop. Created for learning purposes.</p>
+  </footer>
+
+</body>
+
+</html>

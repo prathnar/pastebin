@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paste at {{ paste_id }} - CodeDrop</title>
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">CodeDrop</div>
+
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links" id="nav-links">
+        <a href="/" class="active">Home</a>
+        <a href="/create">Create Paste</a>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <div class="form-wrapper">
+      <h2>Paste Details</h2>
+
+      <div class="paste-details">
+        <!-- Paste Title -->
+        <h3>Title: {{ title }}</h3>
+
+        <!-- Paste ID -->
+        <p><strong>Paste ID:</strong> {{ paste_id }}</p>
+
+        <!-- Paste Content -->
+        <label for="content">Content:</label>
+        <pre id="content" class="paste-content">{{ content }}</pre>
+      </div>
+
+      <!-- Buttons -->
+      <div class="paste-actions">
+        <a href="/create" class="btn">Create New Paste</a>
+        <a href="/" class="btn">Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 CodeDrop. Created for learning purposes.</p>
+  </footer>
+
+</body>
+
+</html>

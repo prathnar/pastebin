@@ -1,0 +1,821 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Fade-in animation for main container */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------ */
+/* NAVBAR */
+/* ------------------------------ */
+
+.navbar {
+  background-color: #2c3e50;
+  padding: 15px 0;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Navbar links with underline hover animation */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 20px;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #1abc9c;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #1abc9c;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ------------------------------ */
+/* HAMBURGER MENU */
+/* ------------------------------ */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  background-color: white;
+  height: 3px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Animation for active hamburger */
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* ------------------------------ */
+/* RESPONSIVE STYLES */
+/* ------------------------------ */
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background-color: #2c3e50;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: slideDown 0.4s ease;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+}
+
+/* Smooth dropdown animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+}
+
+
+/* ==== Main Content ==== */
+.main-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.home-content {
+  max-width: 800px;
+  text-align: center;
+  background-color: #161b22;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.home-content h1 {
+  color: #58a6ff;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.home-content p {
+  color: #c9d1d9;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.home-content h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  color: #58a6ff;
+}
+
+.home-content ul {
+  list-style: none;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.home-content ul li {
+  margin-bottom: 10px;
+  color: white;
+  font-size: 1rem;
+  padding-left: 25px;
+  position: relative;
+}
+
+.home-content ul li::before {
+  content: "•";
+  color: #58a6ff;
+  position: absolute;
+  left: 8px;
+}
+
+/* ==== CTA Button ==== */
+.btn {
+  display: inline-block;
+  background-color: #238636;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2ea043;
+}
+
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #2c3e50;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+}
+
+/* Create paste page */
+
+
+/* Container */
+.container {
+  max-width: 900px;
+  width: 90%;
+  margin: 40px auto 80px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== Create Paste Form Section ==== */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  min-height: calc(100vh - 150px);
+  background-color: #f9f9f9;
+}
+
+.form-wrapper {
+  background: white;
+  padding: 50px 70px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px; /* Increased width (was smaller before) */
+}
+
+.form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #222;
+}
+
+.paste-form label {
+  display: block;
+  font-weight: 600;
+  margin: 16px 0 8px;
+  color: #333;
+}
+
+.paste-form input[type="text"],
+.paste-form input[type="password"],
+.paste-form select,
+.paste-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  transition: border-color 0.3s;
+}
+
+.paste-form input:focus,
+.paste-form textarea:focus,
+.paste-form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.paste-form textarea {
+  resize: vertical;
+  min-height: 260px;
+}
+
+.paste-form button {
+  display: block;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 14px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background 0.3s ease;
+}
+
+.paste-form button:hover {
+  background-color: #0056b3;
+}
+
+.inline-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive layout for smaller devices */
+@media (max-width: 768px) {
+  .form-wrapper {
+    padding: 30px 20px;
+    max-width: 95%;
+  }
+}
+
+
+
+/* Live Preview Box */
+.preview-container {
+  margin-top: 40px;
+  background: #2d2d2d;
+  color: #eee;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Source Code Pro', monospace, monospace;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  min-height: 150px;
+  box-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
+  opacity: 0.95;
+  transition: background 0.3s ease;
+  user-select: text;
+}
+
+.preview-container h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #1abc9c;
+  user-select: none;
+}
+
+/* Footer */
+/* .footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #2c3e50;
+  color: white;
+  margin-top: auto;
+  font-size: 0.9rem;
+  user-select: none;
+} */
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .nav-links {
+    margin-top: 10px;
+  }
+
+  .navbar .nav-links a {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+}
+
+/* about page */
+
+/* ==== About Page Main Content ==== */
+.main-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.home-content {
+  max-width: 800px;
+  text-align: center;
+  background-color: #161b22;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.home-content h1 {
+  color: #58a6ff;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.home-content p {
+  color: #c9d1d9;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.home-content strong {
+  color: #58a6ff;
+}
+
+/* Footer */
+/* .footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #2c3e50;
+  color: white;
+  margin-top: auto;
+  font-size: 0.9rem;
+  user-select: none;
+} */
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* login page */
+/* Container */
+.container {
+  max-width: 400px;
+  width: 90%;
+  margin: 80px auto 80px auto;
+  background: white;
+  padding: 40px 35px;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+  animation: fadeInDown 0.7s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Title */
+.form-title {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #2c3e50;
+  user-select: none;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #444;
+  user-select: none;
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1.5px solid #ccc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  background: #fefefe;
+  color: #222;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #1abc9c;
+  box-shadow: 0 0 10px rgba(26, 188, 156, 0.5);
+}
+
+/* Submit button */
+button.submit-btn {
+  padding: 14px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  animation: pulse 2s infinite;
+  user-select: none;
+}
+
+button.submit-btn:hover {
+  background-color: #16a085;
+  animation: none;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(26, 188, 156, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(26, 188, 156, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(26, 188, 156, 0);
+  }
+}
+
+/* Forgot password link */
+.forgot-link {
+  font-size: 0.9rem;
+  color: #1abc9c;
+  text-align: right;
+  margin-top: -15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: underline;
+}
+
+.forgot-link:hover {
+  color: #16a085;
+}
+
+/* Footer */
+/* .footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #2c3e50;
+  color: white;
+  margin-top: auto;
+  font-size: 0.9rem;
+  user-select: none;
+} */
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 25px;
+  }
+
+  .form-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* View paste */
+.paste-details {
+  margin-top: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.paste-content {
+  background: #272822;
+  color: #f8f8f2;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 14px;
+  white-space: pre-wrap;
+  margin-top: 10px;
+}
+
+.paste-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  padding: 8px 14px;
+  margin: 0 15px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* 404 page */
+
+.home-content h1 {
+  color: #58a6ff;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.home-content p {
+  color: #c9d1d9;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.home-content .btn {
+  background-color: #58a6ff;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.home-content .btn:hover {
+  background-color: #1f6feb;
+}
+
+/* password page */
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 160px);
+  background-color: #f9fafb;
+  padding: 30px;
+}
+
+.form-wrapper {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.form-wrapper h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.info-text {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.paste-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.paste-form label {
+  text-align: left;
+  font-weight: 500;
+  color: #333;
+}
+
+.paste-form input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.paste-form input[type="password"]:focus {
+  border-color: #007bff;
+}
+
+.paste-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.paste-form button:hover {
+  background-color: #0056b3;
+}
+
+.back-link {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.back-link a {
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+  color: #0056b3;
+}
+
