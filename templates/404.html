@@ -10,16 +10,16 @@
 
 <body>
 
+    <!-- Navbar -->
     <header class="navbar">
         <div class="navbar-container">
             <div class="logo">CodeDrop</div>
 
-            <!-- Hamburger -->
+            <!-- Hamburger (for mobile) -->
             <div class="hamburger" id="hamburger">
-                <a href="/" class="active">Home</a>
-                <a href="/create">Create Paste</a>
-                <a href="/about">About</a>
-
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
 
             <!-- Navigation Links -->
@@ -30,6 +30,7 @@
             </nav>
         </div>
     </header>
+
 
 
     <!-- Main Content -->
@@ -52,6 +53,17 @@
     <footer class="footer">
         <p>© 2025 CodeDrop. Created for learning purposes.</p>
     </footer>
+
+    <!-- JS for Hamburger Menu -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
 
 </body>
 
