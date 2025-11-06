@@ -120,3 +120,4 @@ def view_paste(uid):
 @app.route("/about", methods=["GET", "POST"])
 def about():
     return render_template("about.html")
+
